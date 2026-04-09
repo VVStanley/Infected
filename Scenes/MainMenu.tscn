@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmenu1111111111"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_menu"]
+[ext_resource type="Script" path="res://Scripts/NicknamePopup.gd" id="2_popup"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LogoLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -300.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MAZE OF HORROR"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.8, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0, 0, 1)
+theme_override_constants/outline_size = 3
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Играть"
+
+[node name="SettingsButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Настройки"
+
+[node name="LeaderboardButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Рекорды"
+
+[node name="ExitButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Выход"
+
+[node name="NicknamePopup" type="PopupPanel" parent="."]
+title = "Введите никнейм"
+unresizable = true
+script = ExtResource("2_popup")
+
+[node name="PopupVBox" type="VBoxContainer" parent="NicknamePopup"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PopupLabel" type="Label" parent="NicknamePopup/PopupVBox"]
+layout_mode = 2
+text = "Введите ваш ник (макс. 15 символов):"
+horizontal_alignment = 1
+
+[node name="NicknameLineEdit" type="LineEdit" parent="NicknamePopup/PopupVBox"]
+layout_mode = 2
+placeholder_text = "Ваш ник..."
+max_length = 15
+
+[node name="SubmitButton" type="Button" parent="NicknamePopup/PopupVBox"]
+layout_mode = 2
+text = "Начать игру"
